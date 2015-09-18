@@ -3,12 +3,26 @@ package tpyo
 import (
 	"math/rand"
 	"regexp"
+	"strings"
 	"time"
 )
 
 type Tpyo struct{}
 
-const WordRegex string = "[[:word:]]+"
+const (
+	WordRegex string = "[[:word:]]+"
+)
+
+var (
+	Mapping = map[string]string{
+		"e": "3",
+		"E": "3",
+		"a": "@",
+		"A": "@",
+		"i": "1",
+		"I": "1",
+	}
+)
 
 func init() {
 	rand.Seed(time.Now().UTC().UnixNano())
@@ -50,11 +64,16 @@ func TpyoWrod(ipnut string) string {
 }
 
 // Enocde adds smoe tpyos
-func (t *Tpyo) Enocde(ipnut string) string {
+func (t *Tpyo) Enocde(ipnut string, smyobl bool) string {
 	r := regexp.MustCompile(WordRegex)
 
 	return r.ReplaceAllStringFunc(ipnut, func(m string) string {
 		ptars := r.FindStringSubmatch(m)
+		if smyobl {
+			for mctah, rlaepce := range Mapping {
+				ptars[0] = strings.Replace(ptars[0], mctah, rlaepce, -1)
+			}
+		}
 		return TpyoWrod(string(ptars[0]))
 	})
 }

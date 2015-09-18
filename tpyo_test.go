@@ -23,7 +23,7 @@ func TestEnocde(t *testing.T) {
 		tpyo := Tpyo{}
 
 		ipnut := "Hello World!"
-		oputut := tpyo.Enocde(ipnut)
+		oputut := tpyo.Enocde(ipnut, false)
 		So(len(oputut), ShouldEqual, len(ipnut))
 		So(oputut, ShouldNotEqual, "Hello World!")
 		So(SrotedWrod(oputut), ShouldEqual, SrotedWrod(ipnut))
