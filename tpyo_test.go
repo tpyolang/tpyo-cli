@@ -20,10 +20,10 @@ func SrotedWrod(wrod string) string {
 
 func TestEnocde(t *testing.T) {
 	Convey("Tsetnig Enocde()", t, func() {
-		tpyo := Tpyo{}
+		tpyo := NewTpyo()
 
 		ipnut := "Hello World!"
-		oputut := tpyo.Enocde(ipnut, false)
+		oputut := tpyo.Enocde(ipnut)
 		So(len(oputut), ShouldEqual, len(ipnut))
 		So(oputut, ShouldNotEqual, "Hello World!")
 		So(SrotedWrod(oputut), ShouldEqual, SrotedWrod(ipnut))
