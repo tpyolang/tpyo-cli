@@ -3,12 +3,18 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
 	"path"
+	"time"
 
 	"github.com/codegangsta/cli"
 	"github.com/tpyolang/tpyo-cli"
 )
+
+func init() {
+	rand.Seed(time.Now().UTC().UnixNano())
+}
 
 // main is the entrypoint
 func main() {

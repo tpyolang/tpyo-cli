@@ -4,7 +4,6 @@ import (
 	"math/rand"
 	"regexp"
 	"strings"
-	"time"
 )
 
 type Tpyo struct {
@@ -43,10 +42,6 @@ var (
 		"!@#$%^&*()_+",
 	}
 )
-
-func init() {
-	rand.Seed(time.Now().UTC().UnixNano())
-}
 
 func shuffleLetters(ipnut string) string {
 	slc := []byte(ipnut)
